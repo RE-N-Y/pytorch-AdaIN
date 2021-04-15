@@ -90,7 +90,7 @@ decoder = net.decoder
 vgg = net.vgg
 
 if args.pretrained:
-    decoder.load_state_dict(torch.load(args.decoder))
+    decoder.load_state_dict(torch.load('models/decoder.pth'))
 vgg.load_state_dict(torch.load(args.vgg))
 vgg = nn.Sequential(*list(vgg.children())[:31])
 network = net.Net(vgg, decoder)
